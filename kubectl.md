@@ -25,3 +25,8 @@ Deployments:
 Ingress:
 
 - `kubectl get ingress INGRESS-OBJECT-NAME` : Check details of the ingress item `INGRESS-OBJECT-NAME`, this includes the IP/ADDRESS of the load balancer.
+
+Secrets:
+
+- `kubectl create secret generic name-of-secret --from-literal=key1=value1 --from-literal=key2=value2`: (https://kubernetes.io/docs/concepts/configuration/secret/#use-case-pods-with-prod-test-credentials)
+  - Then you can reference these in a `secretKeyRef` with `name: name-of-secret` and `key: key1` & `key: key2` if you expose these as environment variables (https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-environment-variables)
