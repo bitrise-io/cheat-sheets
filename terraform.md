@@ -15,3 +15,9 @@ multi_line_var = <<EOF
 EOF
 
 ```
+
+## Providing variables via env vars instead of `-var-file` or `-var` flag
+
+You can provide value for variables via env vars, by setting `TF_VAR_varname` environment variables before running `terraform` commands. Basically use the variable's name, and prefix it with `TF_VAR_` as the environment variable key (the value will be the value). E.g. if the variable in the `.tf` file is `project_id` then you can provide a value for it by setting the `TF_VAR_project_id` env var.
+
+Docs for more info: https://www.terraform.io/docs/configuration/variables.html#environment-variables
