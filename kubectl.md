@@ -17,6 +17,9 @@ Basics:
 Deployments:
 
 - `kubectl rollout status deployment DEPLOYMENT-NAME` : Check the status of the `DEPLOYMENT-NAME` deployment. If it's still in progress the command will "tail" / keep fetching the status.
+- `kubectl rollout status deployment DEPLOYMENT-NAME --watch --timeout=30s` : Run this right after the deployment is started. It'll return with a zero exit code if the deployment finishes with success in the specified `--timeout` time frame, otherwise returns with a non zero exit code.
+  - Instead of specifying the `DEPLOYMENT-NAME` you can also use the file definition of the deployment. This only works if there's no other resource in the file! To use this just replace `deployment DEPLOYMENT-NAME` with `-f ./path/to/deployment.yaml`
+    - E.g.: `kubectl rollout status -f ./deployment.yaml --watch --timeout=30s`
 - `kubectl rollout history deployment DEPLOYMENT-NAME` : View deployment/rollout history.
 - `kubectl rollout history deployment DEPLOYMENT-NAME --revision=1` : View details of a specific revision, e.g. which docker image was used.
 - `kubectl rollout undo deployment DEPLOYMENT-NAME` : Rollback with one, to the previous revision.
