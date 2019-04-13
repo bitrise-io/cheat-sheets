@@ -31,5 +31,7 @@ Ingress:
 
 Secrets:
 
-- `kubectl create secret generic name-of-secret --from-literal=key1=value1 --from-literal=key2=value2`: (https://kubernetes.io/docs/concepts/configuration/secret/#use-case-pods-with-prod-test-credentials)
+- `kubectl create secret generic name-of-secret --from-file=./key1 --from-file=./key2`: (https://kubernetes.io/docs/concepts/configuration/secret/#use-case-pods-with-prod-test-credentials)
+  - **Make sure to delete the secret file after applying!**
   - Then you can reference these in a `secretKeyRef` with `name: name-of-secret` and `key: key1` & `key: key2` if you expose these as environment variables (https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-environment-variables)
+  - It's also possible to pass the secret value directly in the command **but this will expose the secret value in your shell history, so instead use the file option or make sure you delete the secret from your shell history!**
