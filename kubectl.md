@@ -32,7 +32,7 @@ Config/context:
 ## Secrets:
 
 Doc: https://kubernetes.io/docs/concepts/configuration/secret/
-How to use/reference Secrets in Env Vars: https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-environment-variables
+How to use/reference Secrets in Env Vars: https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-environment-variables . Note: `name` is the "name of the secret object" (the one you get in `kubectl get secrets`), and `key` is the key in the `data` part of the secret (you can check the `data` of `kubectl get secrets/name-of-the-secret -oyaml` to see all the `key`s).
 
 To set Secrets the preferred solution should be a file based option, where you delete the file that includes the secret as soon as you apply the secret. The doc mentions a template based solution at:
   
