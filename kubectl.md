@@ -51,6 +51,8 @@ stringData:
     password: {{password}}
 ```
 
+This secret can then be volume mounted as a file `config.yaml`.
+
 > Your deployment tool could then replace the `{{username}}` and `{{password}}` template variables before running kubectl apply.
 
 **Make sure to delete the secret file (the one that includes the value of the secret) after applying!**
