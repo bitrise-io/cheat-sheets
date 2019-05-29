@@ -1,5 +1,7 @@
 # govc
 
+Practical intro guide: https://prefetch.net/blog/2017/12/19/managing-vsphere-from-the-linux-command-line/
+
 ## Checking vSphere tasks
 
 ```shell
