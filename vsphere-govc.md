@@ -1,6 +1,10 @@
 # govc
 
-Practical intro guide: https://prefetch.net/blog/2017/12/19/managing-vsphere-from-the-linux-command-line/
+Links:
+
+- govc: https://github.com/vmware/govmomi/tree/master/govc
+- govc Usage guide: https://github.com/vmware/govmomi/blob/master/govc/USAGE.md
+- Practical intro guide: https://prefetch.net/blog/2017/12/19/managing-vsphere-from-the-linux-command-line/
 
 ## Checking vSphere tasks
 
