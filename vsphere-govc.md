@@ -27,3 +27,26 @@ govc datastore.ls -ds=DataStoreName
 # to delete a complete folder
 govc datastore.rm -ds=DataStoreName folder-name
 ```
+
+## Find a VM by pattern in its name
+
+```shell
+govc find vm -name '*case-sensitive-pattern*'
+```
+
+## Print infos about an object
+
+```shell
+# info about a specific VM
+govc vm.info path/of/vm
+
+# info about all datastores
+govc datastore.info
+# info about a specific one
+govc datastore.info DataStoreName
+
+# info about datacenters
+govc datacenter.info
+# info about a specific one
+govc datacenter.info DatacenterName
+```
