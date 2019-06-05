@@ -77,6 +77,9 @@ kubectl config set-context $(kubectl config current-context) --namespace=<insert
 kubectl get pods
 # equivalent to
 kubectl get pods --namespace=<insert-namespace-name-here>
+
+# you can check which namespace is set with:
+kubectl config view | grep 'namespace:'
 ```
 
 ( source: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/#setting-the-namespace-preference )
