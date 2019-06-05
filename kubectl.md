@@ -58,3 +58,25 @@ This secret can then be volume mounted as a file `config.yaml`.
 **Make sure to delete the secret file (the one that includes the value of the secret) after applying!**
 
 It's also possible to pass the secret value directly in the command **but this will expose the secret value in your shell history, so instead use the file option or make sure you delete the secret from your shell history!**
+
+
+## Namespace
+
+Setting the `--namespace` for subsequent `kubectl` commands, so that you don't have to add the `-n`/`--namespace` param to every `kubectl` command:
+
+```shell
+# if you don't set the "namespace preference" this will get the pods from the "default" namespace
+kubectl get pods
+# equivalent to
+kubectl get pods --namespace=default
+
+# change the namespace
+kubectl config set-context $(kubectl config current-context) --namespace=<insert-namespace-name-here>
+
+# running the same pods listing will now list the pods from the specified namespace
+kubectl get pods
+# equivalent to
+kubectl get pods --namespace=<insert-namespace-name-here>
+```
+
+( source: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/#setting-the-namespace-preference )
