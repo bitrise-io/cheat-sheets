@@ -36,6 +36,9 @@ govc datastore.rm -ds=DataStoreName folder-name
 
 ```shell
 govc find vm -name '*case-sensitive-pattern*'
+
+# a more complex example
+govc find 'vm/path/to/folder' -type VirtualMachine -name 'prefix-*-pattern*'
 ```
 
 ## Print infos about an object
