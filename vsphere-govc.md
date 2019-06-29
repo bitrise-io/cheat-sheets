@@ -17,6 +17,11 @@ govc tasks -f
 
 # check (follow) filtering for just the tasks including "error"
 govc tasks -f | grep -i 'error'
+
+# check tasks related to a specific VM/Template, e.g. all the VM clones from this specified VM
+# for VMs the path has to start with vm/ followed by the path of the VM (folder1/subfolder/.../vmname)
+#  the same format you get in the results/output of "govc find vm ..."
+govc tasks -f vm/PATH/TO/SOURCE-VM
 ```
 
 ## List files on a datastore
