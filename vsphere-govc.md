@@ -62,3 +62,12 @@ govc datacenter.info
 # info about a specific one
 govc datacenter.info DatacenterName
 ```
+
+## Attach a tag to a VM
+
+```shell
+# find the VM and its full path:
+govc find vm -name '*some-pattern-*'
+#
+govc tags.attach THE-TAG "/vm/PATH/TO/VM"
+```
