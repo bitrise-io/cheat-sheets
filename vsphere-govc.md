@@ -46,6 +46,12 @@ govc find vm -name '*case-sensitive-pattern*'
 govc find 'vm/path/to/folder' -type VirtualMachine -name 'prefix-*-pattern*'
 ```
 
+## List all VMs
+
+```shell
+govc find 'vm/' -type VirtualMachine
+```
+
 ## Print infos about an object
 
 ```shell
