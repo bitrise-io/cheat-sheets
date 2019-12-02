@@ -84,5 +84,5 @@ govc find vm -name '*some-pattern-*' > /tmp/vmlist
 cat /tmp/vmlist
 # if the list is good (make sure it only includes the VMs you expect it to include!!)
 # you can attach the tags to all of them via:
-cat /tmp/vmlist | xargs -I {} govc tags.attach THE-TAG {}
+cat /tmp/vmlist | xargs -I {} bash -c 'echo "* {}" ; govc tags.attach THE-TAG {}'
 ```
