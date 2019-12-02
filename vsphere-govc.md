@@ -69,11 +69,20 @@ govc datacenter.info
 govc datacenter.info DatacenterName
 ```
 
-## Attach a tag to a VM
+## Attach a tag to a VM or to multiple VMs
 
 ```shell
 # find the VM and its full path:
 govc find vm -name '*some-pattern-*'
 # attach THE-TAG to the VM
 govc tags.attach THE-TAG "/vm/PATH/TO/VM"
+
+# or to attach the tag to multiple VMs:
+govc find vm -name '*some-pattern-*' > /tmp/vmlist
+# will find all the VMs and write the list into /tmp/vmlist
+# now inspect the /tmp/vmlist file
+cat /tmp/vmlist
+# if the list is good (make sure it only includes the VMs you expect it to include!!)
+# you can attach the tags to all of them via:
+cat /tmp/vmlist | xargs -I {} govc tags.attach THE-TAG {}
 ```
