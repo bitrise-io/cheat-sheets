@@ -78,7 +78,7 @@ govc find vm -name '*some-pattern-*'
 govc tags.attach THE-TAG "/vm/PATH/TO/VM"
 
 # or to attach the tag to multiple VMs:
-govc find vm -name '*some-pattern-*' > /tmp/vmlist
+govc find vm -name '*some-pattern-*' 2>&1 | tee /tmp/vmlist
 # will find all the VMs and write the list into /tmp/vmlist
 # now inspect the /tmp/vmlist file
 cat /tmp/vmlist
