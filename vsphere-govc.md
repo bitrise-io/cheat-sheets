@@ -86,3 +86,34 @@ cat /tmp/vmlist
 # you can attach the tags to all of them via:
 cat /tmp/vmlist | xargs -I {} bash -c 'echo "* {}" ; govc tags.attach THE-TAG {}'
 ```
+
+## Printing VM infos of all VMs matching a pattern
+
+```shell
+# find the VMs you want to destroy, which match your pattern
+govc find vm -name '*some-pattern-*' 2>&1 | tee /tmp/vmlist
+
+# will find all the VMs and write the list into /tmp/vmlist
+# now inspect the /tmp/vmlist file
+cat /tmp/vmlist
+
+# if the list is good (make sure it only includes the VMs you expect it to include!!)
+# iterate through all VMs in the list and print their vm.info
+# writing the results into a file
+awk -F/ '{print $5}' /tmp/vmlist | xargs -I {} bash -c 'echo "* {}" && govc vm.info -e {}' | tee /tmp/vm.infos
+```
+
+## Destroy VMs matching a pattern
+
+```shell
+# find the VMs you want to destroy, which match your pattern
+govc find vm -name '*some-pattern-*' 2>&1 | tee /tmp/vmlist
+
+# will find all the VMs and write the list into /tmp/vmlist
+# now inspect the /tmp/vmlist file
+cat /tmp/vmlist
+
+# if the list is good (make sure it only includes the VMs you expect it to include!!)
+# you can iterate through all, print their vm.info and then destroy them
+awk -F/ '{print $5}' /tmp/vmlist | xargs -I {} bash -c 'echo "* {}" && govc vm.destroy {}'
+```
